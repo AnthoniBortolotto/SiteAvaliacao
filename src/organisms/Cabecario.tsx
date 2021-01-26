@@ -1,10 +1,9 @@
 import { AppBar, Box, Button, colors, createMuiTheme, createStyles, Grid, Link, makeStyles, Tab, Tabs, Theme, Typography, withStyles, WithStyles, } from '@material-ui/core';
-import React, { Component } from 'react';
-//@ts-ignore
-import logo from "../atoms/img/logoNews.png";
-import Home from '../pages/Home';
-import Science from '../pages/Science';
-import Technology from '../pages/Technology';
+import React, { Component, lazy, Suspense } from 'react';
+
+const Home = lazy(() => import('../pages/Home'));
+const Science = lazy(() => import('../pages/Science'));
+const Technology = lazy(() => import('../pages/Technology'));
 
 const useStyles = makeStyles((theme: Theme) => ({
     headerStyle: {
@@ -31,6 +30,7 @@ export default function NavTabs() {
     };
 
     return (<>
+
         <header className={classes.headerStyle}>
             <AppBar color='inherit' position="static">
 
@@ -48,9 +48,11 @@ export default function NavTabs() {
             </AppBar>
         </header>
         <section>
-            {TabSelecionada === 1 && <Home />}
-            {TabSelecionada === 2 && <Technology />}
-            {TabSelecionada === 3 && <Science />}
+            <Suspense fallback={<div></div>}>
+                {TabSelecionada === 1 && <Home />}
+                {TabSelecionada === 2 && <Technology />}
+                {TabSelecionada === 3 && <Science />}
+            </Suspense>
         </section>
     </>
     );
