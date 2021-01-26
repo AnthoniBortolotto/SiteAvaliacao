@@ -2,43 +2,9 @@ import { AppBar, Box, Button, colors, createMuiTheme, createStyles, Grid, Link, 
 import React, { Component } from 'react';
 //@ts-ignore
 import logo from "../atoms/img/logoNews.png";
-interface TabPanelProps {
-    children?: React.ReactNode;
-    index: any;
-    value: any;
-}
-
-function TabPanel(props: TabPanelProps) {
-    const { children, value, index, ...other } = props;
-
-    return (
-        <div
-            role="tabpanel"
-            hidden={value !== index}
-            id={`nav-tabpanel-${index}`}
-            aria-labelledby={`nav-tab-${index}`}
-            {...other}
-        >
-            {value === index && (
-                <Box p={3}>
-                    <Typography>{children}</Typography>
-                </Box>
-            )}
-        </div>
-    );
-}
-
-function a11yProps(index: any) {
-    return {
-        id: `nav-tab-${index}`,
-        'aria-controls': `nav-tabpanel-${index}`,
-    };
-}
-
-interface LinkTabProps {
-    label?: string;
-    href?: string;
-}
+import Home from '../pages/Home';
+import Science from '../pages/Science';
+import Technology from '../pages/Technology';
 
 const useStyles = makeStyles((theme: Theme) => ({
     headerStyle: {
@@ -48,7 +14,7 @@ const useStyles = makeStyles((theme: Theme) => ({
         display: 'flex',
         justifyContent: 'space-between'
     },
-    TabTituloStyle:{
+    TabTituloStyle: {
         width: '66%'
     },
     TabNormalStyle: {
@@ -58,37 +24,34 @@ const useStyles = makeStyles((theme: Theme) => ({
 
 export default function NavTabs() {
     const classes = useStyles();
-    const [value, setValue] = React.useState(1);
+    const [TabSelecionada, setTab] = React.useState(1);
 
-    const handleChange = (event: React.ChangeEvent<{}>, newValue: number) => {
-        setValue(newValue);
+    const handlerChange = (event: React.ChangeEvent<{}>, Tab: number) => {
+        setTab(Tab);
     };
 
-    return (
+    return (<>
         <header className={classes.headerStyle}>
             <AppBar color='inherit' position="static">
-                
+
                 <Tabs
                     variant="standard"
-                    value={value}
-                    onChange={handleChange}
+                    value={TabSelecionada}
+                    onChange={handlerChange}
                     aria-label="nav tabs example"
                 >
                     <Typography variant="h3" className={classes.TabTituloStyle}>Tomorrow News</Typography>
-                    <Tab className={classes.TabNormalStyle} label="Home"/>
-                    <Tab className={classes.TabNormalStyle} label="Technology"/>
-                    <Tab className={classes.TabNormalStyle} label="Science"/>
+                    <Tab className={classes.TabNormalStyle} label="Home" />
+                    <Tab className={classes.TabNormalStyle} label="Technology" />
+                    <Tab className={classes.TabNormalStyle} label="Science" />
                 </Tabs>
             </AppBar>
-            <TabPanel value={value} index={1}>
-                Page One
-        </TabPanel>
-            <TabPanel value={value} index={2}>
-                Page Two
-        </TabPanel>
-            <TabPanel value={value} index={3}>
-                Page Three
-        </TabPanel>
         </header>
+        <section>
+            {TabSelecionada === 1 && <Home />}
+            {TabSelecionada === 2 && <Technology />}
+            {TabSelecionada === 3 && <Science />}
+        </section>
+    </>
     );
 }
