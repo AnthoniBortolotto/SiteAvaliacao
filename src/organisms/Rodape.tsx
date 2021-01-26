@@ -40,7 +40,7 @@ class Rodape extends React.Component<Props, State> {
         const { classes } = this.props;
         return (
             <Card className={classes.rodapeStyle}>
-                <Typography className={classes.textTypographyStyle}>Pontual News&trade; Todos os direitos reservados &copy; 2020</Typography>
+                <Typography className={classes.textTypographyStyle}>Tomorrow News&trade; Todos os direitos reservados &copy; 2020</Typography>
             </Card>
         );
     }

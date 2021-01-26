@@ -8,10 +8,10 @@ import { createMuiTheme, ThemeProvider } from '@material-ui/core';
 export const theme = createMuiTheme({
   palette: {
     primary: {
-      main: '#2e7d32'
+      main: '#1565c0'
     },
     secondary: {
-      main: '#00838f'
+      main: '#1565c0'
     }
   },
 });
@@ -20,7 +20,7 @@ ReactDOM.render(
   <BrowserRouter>
     <ThemeProvider theme={theme} >
 
-      <Cabecario />
+      <Cabecario/>
       <Suspense fallback={<div></div>}>
         <Switch>
 
