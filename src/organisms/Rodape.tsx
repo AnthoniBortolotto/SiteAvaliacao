@@ -11,17 +11,11 @@ export interface State {
 }
 const styles = (theme:any) => createStyles({
     rodapeStyle: {
-        bottom: '0',
         color: 'rgba(59, 63, 63, 0.781)',
         marginTop: '0.5rem',
         position: 'absolute',
         width: '100%',
-        [theme.breakpoints.up('xs')]: {
-            display: 'none'
-        },
-        [theme.breakpoints.up('sm')]: {
-            display: 'block'
-        },
+        display: 'block'
     },
     textTypographyStyle: {
         borderTop: '1px solid #dee2e6',

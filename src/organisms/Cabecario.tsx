@@ -1,10 +1,6 @@
-import { AppBar, Box, Button, colors, createMuiTheme, createStyles, Grid, Link, makeStyles, Tab, Tabs, Theme, Typography, withStyles, WithStyles, } from '@material-ui/core';
-import React, { Component, lazy, Suspense } from 'react';
+import { AppBar, makeStyles, Tab, Tabs, Theme, Typography} from '@material-ui/core';
+import React from 'react';
 import { useHistory } from "react-router-dom";
-
-const Home = lazy(() => import('../pages/Home'));
-const Science = lazy(() => import('../pages/Science'));
-const Technology = lazy(() => import('../pages/Technology'));
 
 const useStyles = makeStyles((theme: Theme) => ({
     headerStyle: {

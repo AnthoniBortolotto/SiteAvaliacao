@@ -1,9 +1,8 @@
 import React from 'react'
 
 const Home = (): JSX.Element => {
-    return (<section>
-        <p>Home</p>
-    </section>)
+    return (
+        <p>Home</p>)
 }
 
 export default Home;

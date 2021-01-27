@@ -4,7 +4,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Rodape from '../organisms/Rodape';
 import Cabecario from '../organisms/Cabecario';
 import "../atoms/css/bootstrap.min.css";
-import { CircularProgress, createMuiTheme, makeStyles, Theme, ThemeProvider } from '@material-ui/core';
+import {createMuiTheme, ThemeProvider } from '@material-ui/core';
 import Loading from '../organisms/Loading';
 const Home = lazy(() => import('../pages/Home'));
 const Science = lazy(() => import('../pages/Science'));
@@ -24,7 +24,6 @@ ReactDOM.render(
 
   <BrowserRouter>
     <ThemeProvider theme={theme} >
-
       <Cabecario />
       <Suspense fallback={<Loading/>}>
         <Switch>
@@ -33,7 +32,6 @@ ReactDOM.render(
           <Route exact={true} path="/Technology" component={Technology} />
         </Switch>
       </Suspense>
-
       <Rodape />
     </ThemeProvider>
   </BrowserRouter>
