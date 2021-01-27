@@ -1,7 +1,9 @@
 import React from 'react'
 
 const Science = (): JSX.Element => {
-    return (<p>Science</p>)
+    return (<section>
+    <p>Science</p>
+    </section>)
 }
 
 export default Science;

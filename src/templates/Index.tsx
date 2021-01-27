@@ -5,6 +5,9 @@ import Rodape from '../organisms/Rodape';
 import Cabecario from '../organisms/Cabecario';
 import "../atoms/css/bootstrap.min.css";
 import { createMuiTheme, ThemeProvider } from '@material-ui/core';
+const Home = lazy(() => import('../pages/Home'));
+const Science = lazy(() => import('../pages/Science'));
+const Technology = lazy(() => import('../pages/Technology'));
 export const theme = createMuiTheme({
   palette: {
     primary: {
@@ -17,19 +20,23 @@ export const theme = createMuiTheme({
 });
 
 ReactDOM.render(
+
   <BrowserRouter>
     <ThemeProvider theme={theme} >
 
-      <Cabecario/>
+      <Cabecario />
       <Suspense fallback={<div></div>}>
         <Switch>
-
+          <Route exact={true} path="/" component={Home} />
+          <Route exact={true} path="/Science" component={Science} />
+          <Route exact={true} path="/Technology" component={Technology} />
         </Switch>
       </Suspense>
 
       <Rodape />
     </ThemeProvider>
   </BrowserRouter>
+
   ,
   document.getElementById('app')
 );
