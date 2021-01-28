@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme: Theme) => ({
         width: '66%'
     },
     TabNormalStyle: {
-        width: '11%',
+        width: '11%'
     }
 }));
 

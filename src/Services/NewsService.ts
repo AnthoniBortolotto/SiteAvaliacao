@@ -1,5 +1,5 @@
 import Noticia from "../molecules/Noticia";
-import {IResultadoNoticia} from "../atoms/interfaces"
+import {IResultadoNoticia} from "../atoms/Interfaces"
 class NewsService{
     private static getLinkScience(): string{
         return 'https://api.nytimes.com/svc/topstories/v2/science.json?api-key=4fhC4YKLRAeBoW8cOa2KcFPBYVDUhMHC';

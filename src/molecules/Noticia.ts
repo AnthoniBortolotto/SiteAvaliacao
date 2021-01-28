@@ -1,4 +1,4 @@
-import { IResultadoNoticia } from "../atoms/interfaces";
+import { IResultadoNoticia } from "../atoms/Interfaces";
 
 
 class Noticia{
@@ -10,7 +10,7 @@ class Noticia{
         this.abstract = resultado.abstract;
         this.titulo = resultado.title;
         this.url = resultado.url;
-        this.urlImagem= resultado.multimedia[3].url;     
+        this.urlImagem= resultado.multimedia[0].url;     
     }
 }
 export default Noticia;
