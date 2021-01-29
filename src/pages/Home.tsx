@@ -6,7 +6,7 @@ import withStyles from "@material-ui/styles/withStyles/withStyles";
 import React from "react";
 import Noticia from "../molecules/Noticia";
 import NewsService from "../Services/NewsService";
-import CardNoticias from "../templates/CardNoticias";
+import CardNoticias from "../templates/ExibicaoCard";
 
 export interface HomeProps extends WithStyles<typeof styles> {
 

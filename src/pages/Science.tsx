@@ -1,6 +1,6 @@
 import { Card, CardContent, CardMedia, createStyles, Grid, Theme, Typography, WithStyles, withStyles } from '@material-ui/core';
 import React from 'react'
-import CardNoticias from '../templates/CardNoticias';
+import CardNoticias from '../templates/ExibicaoCard';
 import Noticia from '../molecules/Noticia';
 import NewsService from '../Services/NewsService';
 
