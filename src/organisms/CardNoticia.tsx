@@ -6,7 +6,7 @@ import makeStyles from '@material-ui/core/styles/makeStyles';
 import Typography from '@material-ui/core/Typography';
 import React, { lazy, Suspense } from 'react'
 import Noticia from '../molecules/Noticia';
-import Loading from './Loading';
+import Loading from '../atoms/Loading';
 const ImagemCartao = lazy(() => import('../atoms/ImagemCartao'));
 
 interface CardNoticiaProps {

@@ -5,7 +5,7 @@ import Rodape from '../organisms/Rodape';
 import Cabecario from '../organisms/Cabecario';
 import "../atoms/css/bootstrap.min.css";
 import {createMuiTheme, ThemeProvider } from '@material-ui/core';
-import Loading from '../organisms/Loading';
+import Loading from '../atoms/Loading';
 const Home = lazy(() => import('../pages/Home'));
 const Science = lazy(() => import('../pages/Science'));
 const Technology = lazy(() => import('../pages/Technology'));
