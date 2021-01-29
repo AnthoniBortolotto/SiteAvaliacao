@@ -1,13 +1,18 @@
-import { Card, CardContent, CardMedia, makeStyles, createStyles, Grid, Link, Theme, Typography, WithStyles, withStyles } from '@material-ui/core';
+import { Card, CardContent, CardMedia, makeStyles, createStyles, Grid, Link, Theme, Typography, WithStyles, withStyles, Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions, Button } from '@material-ui/core';
 import React, { MouseEventHandler } from 'react'
 import Noticia from '../molecules/Noticia';
 import NewsService from '../Services/NewsService';
 
-export interface CardNoticiasProps {
+export interface CardNoticiasProps extends WithStyles<typeof styles>{
     Noticias: Noticia[]
 }
 
-const useStyles = makeStyles({
+export interface CardNoticiasState {
+    dialogOpen: boolean,
+    dialogId: number
+}
+
+const styles = () => createStyles({
     CardStyle: {
         marginTop: '1rem',
         marginBottom: '1rem',
@@ -32,41 +37,67 @@ const useStyles = makeStyles({
         left: '10%',
         top: '10%'
 
+    },
+    DialogImageStyle: {
+        width: '100%'
     }
     // CardModalMediaStyle:{
 
     // }
 })
+ 
+class CardNoticias extends React.Component<CardNoticiasProps, CardNoticiasState> {
 
-
-const CardNoticias = (Noticias:Noticia[]): JSX.Element[] => {
-    const classes = useStyles();   
-    return (
-        Noticias.map((noticia, index) => {
-            return (<Grid item xs={3} className={classes.gridItemStyle}>
-                <Card component="button" key={index} onClick={() => handlerClick(index)} className={classes.CardStyle}>
-                    <CardMedia component="img" image={noticia.urlImagem} alt="Imagem da notícia" />
-                    <CardContent>
-                        <Typography component="p">{noticia.titulo}</Typography>
-                    </CardContent>
-                </Card>
-            </Grid>);
-        }))
-
-        function handlerClick(id: number): JSX.Element {
-            const classes = useStyles();
-            console.log(Noticias[id]);
-            return (<Card className={classes.cardModalStyle}>
-                <CardMedia
-                    image={Noticias[id].urlImagem}
-                />
-                <CardContent>
-                    <Typography variant="h5">{Noticias[id].titulo}</Typography>
-                    <Typography component="p">{Noticias[id].abstract}</Typography>
-                    <Typography component="p">Link da notícia: <Link component="button" variant="body2" href={Noticias[id].url}>{Noticias[id].url}</Link></Typography>
-                </CardContent>
-            </Card>);
+    constructor(props:CardNoticiasProps){
+        super(props);
+        this.state = {
+            dialogOpen: false,
+            dialogId: -1
         }
+    }
+    private cards(){
+        const {classes} = this.props;
+        return (
+            this.props.Noticias.map((noticia, index) => {
+                return (<Grid item xs={3} className={classes.gridItemStyle}>
+                    <Card component="button" key={index} onClick={() => this.setState({dialogId: index, dialogOpen: true})} className={classes.CardStyle}>
+                        <CardMedia component="img" image={noticia.urlImagem} alt="Imagem da notícia" />
+                        <CardContent>
+                            <Typography component="p">{noticia.titulo}</Typography>
+                        </CardContent>
+                    </Card>
+                </Grid>);
+            }))
+    }
+    render() { 
+        const {classes} = this.props;
+        return (<>
+            {this.cards()}
+            {this.state.dialogId !== -1 && <Dialog
+                open={this.state.dialogOpen}
+                keepMounted
+                onClose={() => this.setState({dialogOpen: false})}
+                aria-labelledby="alert-dialog-slide-title"
+                aria-describedby="alert-dialog-slide-description"
+            >
+                <DialogTitle id="alert-dialog-slide-title">{this.props.Noticias[this.state.dialogId].titulo}</DialogTitle>
+                <DialogContent>
+                    <img className={classes.DialogImageStyle} alt="Imagem da notícia" src={this.props.Noticias[this.state.dialogId].urlImagem} />
+                    <DialogContentText id="alert-dialog-slide-description">
+                        {this.props.Noticias[this.state.dialogId].abstract}
+              </DialogContentText>
+              <DialogContentText id="alert-dialog-slide-description">
+                        News Link: <Link href={this.props.Noticias[this.state.dialogId].url}>{this.props.Noticias[this.state.dialogId].url}</Link>
+              </DialogContentText>
+                </DialogContent>
+                <DialogActions>
+                    <Button onClick={() => this.setState({dialogOpen: false})} color="primary">
+                        Close
+              </Button>
+                </DialogActions>
+            </Dialog>}
+            </>
+        );
+    }
 }
-
-export default CardNoticias;
+export default withStyles(styles)(CardNoticias);
