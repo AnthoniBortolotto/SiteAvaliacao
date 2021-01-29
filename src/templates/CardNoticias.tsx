@@ -77,16 +77,14 @@ class CardNoticias extends React.Component<CardNoticiasProps, CardNoticiasState>
                 open={this.state.dialogOpen}
                 keepMounted
                 onClose={() => this.setState({dialogOpen: false})}
-                aria-labelledby="alert-dialog-slide-title"
-                aria-describedby="alert-dialog-slide-description"
             >
-                <DialogTitle id="alert-dialog-slide-title">{this.props.Noticias[this.state.dialogId].titulo}</DialogTitle>
+                <DialogTitle>{this.props.Noticias[this.state.dialogId].titulo}</DialogTitle>
                 <DialogContent>
                     <img className={classes.DialogImageStyle} alt="Imagem da notícia" src={this.props.Noticias[this.state.dialogId].urlImagem} />
-                    <DialogContentText id="alert-dialog-slide-description">
+                    <DialogContentText>
                         {this.props.Noticias[this.state.dialogId].abstract}
               </DialogContentText>
-              <DialogContentText id="alert-dialog-slide-description">
+              <DialogContentText>
                         News Link: <Link href={this.props.Noticias[this.state.dialogId].url}>{this.props.Noticias[this.state.dialogId].url}</Link>
               </DialogContentText>
                 </DialogContent>

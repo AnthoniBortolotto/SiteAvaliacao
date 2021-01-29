@@ -36,7 +36,6 @@ class Science extends React.Component<ScienceProps, ScienceState> {
     render(): JSX.Element {
         const { classes } = this.props
         return (<Grid container className={classes.sectionNoticiasScienceStyle}>
-            {/* <CardNoticias Noticias={this.state.Noticias}></CardNoticias> */}
             <CardNoticias Noticias={this.state.Noticias}/>
         </Grid>)
     }
