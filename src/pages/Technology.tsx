@@ -16,7 +16,7 @@ export interface TechnologyState {
     Noticias: Array<Noticia>
 }
 const styles = (theme: Theme) => createStyles({
-    sectionNoticiasScienceStyle: {
+    GridNoticiasTechnologyStyle: {
         display: 'flex',
         flexWrap: 'wrap',
         justifyContent: 'space-evenly'
@@ -32,14 +32,14 @@ class Technology extends React.Component<TechnologyProps, TechnologyState> {
         this.atualizarProdutos();
     }
     private atualizarProdutos() {
-        NewsService.noticiasCiencia()
+        NewsService.noticiasTecnologia()
             .then(res => {
                 this.setState({ Noticias: res })
             })
     }
     render(): JSX.Element {
         const { classes } = this.props
-        return (<Grid container className={classes.sectionNoticiasScienceStyle}>
+        return (<Grid container className={classes.GridNoticiasTechnologyStyle}>
             <CardNoticias Noticias={this.state.Noticias}/>
         </Grid>)
     }

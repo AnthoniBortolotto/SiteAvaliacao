@@ -80,7 +80,7 @@ class CardNoticias extends React.Component<CardNoticiasProps, CardNoticiasState>
             >
                 <DialogTitle>{this.props.Noticias[this.state.dialogId].titulo}</DialogTitle>
                 <DialogContent>
-                    <img className={classes.DialogImageStyle} alt="Imagem da notícia" src={this.props.Noticias[this.state.dialogId].urlImagem} />
+                    <img className={classes.DialogImageStyle} alt="Imagem da notícia" src={this.props.Noticias[this.state.dialogId].urlImagemResolucaoBoa} />
                     <DialogContentText>
                         {this.props.Noticias[this.state.dialogId].abstract}
               </DialogContentText>

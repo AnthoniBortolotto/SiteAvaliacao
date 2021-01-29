@@ -32,7 +32,7 @@ class NewsService{
              return grupoNoticias;
          });
      }
-     public static noticiasTechnology(): Promise<Noticia[]>{
+     public static noticiasTecnologia(): Promise<Noticia[]>{
         return fetch(NewsService.getLinkTechnology())
          .then(res => res.json())
          .then(res => {
