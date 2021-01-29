@@ -59,14 +59,16 @@ class CardNoticias extends React.Component<CardNoticiasProps, CardNoticiasState>
         const {classes} = this.props;
         return (
             this.props.Noticias.map((noticia, index) => {
-                return (<Grid item xs={3} className={classes.gridItemStyle}>
+                return (
+                <Grid item xs={3} className={classes.gridItemStyle}>
                     <Card component="button" key={index} onClick={() => this.setState({dialogId: index, dialogOpen: true})} className={classes.CardStyle}>
                         <CardMedia component="img" image={noticia.urlImagem} alt="Imagem da notícia" />
                         <CardContent>
                             <Typography component="p">{noticia.titulo}</Typography>
                         </CardContent>
                     </Card>
-                </Grid>);
+                </Grid>
+                );
             }))
     }
     render() { 
@@ -85,7 +87,7 @@ class CardNoticias extends React.Component<CardNoticiasProps, CardNoticiasState>
                         {this.props.Noticias[this.state.dialogId].abstract}
               </DialogContentText>
               <DialogContentText>
-                        News Link: <Link href={this.props.Noticias[this.state.dialogId].url}>{this.props.Noticias[this.state.dialogId].url}</Link>
+                        News Link: <Link target="_blank" href={this.props.Noticias[this.state.dialogId].url}>{this.props.Noticias[this.state.dialogId].url}</Link>
               </DialogContentText>
                 </DialogContent>
                 <DialogActions>
