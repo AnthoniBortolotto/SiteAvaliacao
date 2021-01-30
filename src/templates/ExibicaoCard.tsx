@@ -14,6 +14,9 @@ export interface ExibicaoCardState {
 }
 
 const styles = () => createStyles({
+    GridItemCardStyle: {
+        marginRight: '-1%',
+    },
     DialogImageStyle: {
         width: '100%'
     }
@@ -36,9 +39,9 @@ class ExibicaoCard extends React.Component<ExibicaoCardProps, ExibicaoCardState>
         return (
             this.props.Noticias.map((noticia, index) => {
                 return (
-                    <Grid item xs={3} key={index} onClick={() => this.setState({ dialogId: index, dialogOpen: true })}>
+                    <Grid item xs={3} key={index} >
                         <Suspense fallback={<Loading/>}>
-                            <CardNoticia noticia={noticia} />
+                            <CardNoticia noticia={noticia} onClick={() => this.setState({ dialogId: index, dialogOpen: true })} />
                         </Suspense>
                     </Grid>
                 );

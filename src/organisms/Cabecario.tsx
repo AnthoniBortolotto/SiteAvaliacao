@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles((theme: Theme) => ({
     headerStyle: {
-        background: "#ffffff"
+        background: "#ffffff",
     },
     AppBarStyle: {
         display: 'flex',
@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme: Theme) => ({
         width: '66%'
     },
     TabNormalStyle: {
-        width: '11%'
+        width: '11%',
     }
 }));
 
@@ -31,24 +31,20 @@ export default function NavTabs() {
         setTab(Tab);
     };
 
-    return (<>
-
+    return (
         <header className={classes.headerStyle}>
             <AppBar color='inherit' position="static">
-
                 <Tabs
                     variant="standard"
                     value={TabSelecionada}
                     onChange={handlerChange}
-                    aria-label="nav tabs example"
                 >
                     <Typography variant="h3" className={classes.TabTituloStyle}>Tomorrow News</Typography>
-                    <Tab className={classes.TabNormalStyle} onClick={() => {history.push('/')}} label="Home" />
-                    <Tab className={classes.TabNormalStyle} onClick={() => {history.push('/Technology')}} label="Technology" />
-                    <Tab className={classes.TabNormalStyle} onClick={() => {history.push('/Science')}} label="Science" />
+                    <Tab component="p" className={classes.TabNormalStyle} onClick={() => {history.push('/')}} label="Home" />
+                    <Tab component="p" className={classes.TabNormalStyle} onClick={() => {history.push('/Technology')}} label="Technology" />
+                    <Tab component="p" className={classes.TabNormalStyle} onClick={() => {history.push('/Science')}} label="Science" />
                 </Tabs>
             </AppBar>
         </header>
-    </>
     );
 }

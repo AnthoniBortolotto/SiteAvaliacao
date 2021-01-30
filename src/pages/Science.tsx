@@ -15,8 +15,8 @@ const styles = (theme: Theme) => createStyles({
     sectionNoticiasScienceStyle: {
         display: 'flex',
         flexWrap: 'wrap',
-        marginLeft: '3%'
-
+        marginLeft: '3%',
+        width: '97%'
     }
 })
 class Science extends React.Component<ScienceProps, ScienceState> {

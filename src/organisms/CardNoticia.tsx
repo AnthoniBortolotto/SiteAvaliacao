@@ -7,10 +7,11 @@ import Typography from '@material-ui/core/Typography';
 import React, { lazy, Suspense } from 'react'
 import Noticia from '../molecules/Noticia';
 import Loading from '../atoms/Loading';
-const ImagemCartao = lazy(() => import('../atoms/ImagemCartao'));
+const ImagemCartao = lazy(() => import('../molecules/ImagemCartao'));
 
 interface CardNoticiaProps {
     noticia: Noticia
+    onClick: Function
 }
 
 const useStyles = makeStyles({
@@ -34,7 +35,7 @@ function CardNoticia(props: CardNoticiaProps): JSX.Element {
     const classes = useStyles();
 
     return (
-        <Card component="button" className={classes.CardStyle}>
+        <Card onClick={() => props.onClick()} className={classes.CardStyle}>
             <Suspense fallback={<Loading/>}>
             <ImagemCartao url={props.noticia.urlImagem} />
             </Suspense>

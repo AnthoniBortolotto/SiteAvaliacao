@@ -19,8 +19,8 @@ const styles = (theme: Theme) => createStyles({
     GridNoticiasTechnologyStyle: {
         display: 'flex',
         flexWrap: 'wrap',
-        marginLeft: '3%'
-
+        marginLeft: '3%',
+        width: '97%'
     }
 })
 class Technology extends React.Component<TechnologyProps, TechnologyState> {
