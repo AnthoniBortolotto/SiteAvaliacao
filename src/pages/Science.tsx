@@ -15,7 +15,7 @@ const styles = (theme: Theme) => createStyles({
     sectionNoticiasScienceStyle: {
         display: 'flex',
         flexWrap: 'wrap',
-        justifyContent: 'space-evenly'
+        marginLeft: '3%'
 
     }
 })

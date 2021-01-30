@@ -19,7 +19,7 @@ const styles = (theme: Theme) => createStyles({
     GridNoticiasTechnologyStyle: {
         display: 'flex',
         flexWrap: 'wrap',
-        justifyContent: 'space-evenly'
+        marginLeft: '3%'
 
     }
 })

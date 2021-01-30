@@ -15,11 +15,12 @@ interface CardNoticiaProps {
 
 const useStyles = makeStyles({
     CardStyle: {
-        marginTop: '1rem',
-        marginBottom: '1rem',
+        border: 'none',
+        height: '90%',
+        marginTop: '4%',
         transition: 'ease-in 0.5s',
         width: '75%',
-        border: 'none',
+        
         zIndex: 1,
         '&:hover': {
             width: '85%',

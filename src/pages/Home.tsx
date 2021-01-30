@@ -19,8 +19,7 @@ const styles = (theme: Theme) => createStyles({
     GridNoticiasHomeStyle: {
         display: 'flex',
         flexWrap: 'wrap',
-        justifyContent: 'space-evenly'
-
+        marginLeft: '3%'
     }
 })
 class Home extends React.Component<HomeProps, HomeState> {
