@@ -7,7 +7,7 @@ export interface RodapeProps extends WithStyles<typeof styles> {
 }
 
 export interface RodapeState {
-
+    ocultar: boolean
 }
 const styles = (theme: any) => createStyles({
     rodapeStyle: {
@@ -32,13 +32,18 @@ class Rodape extends React.Component<RodapeProps, RodapeState> {
     constructor(props: RodapeProps) {
         super(props);
         this.state = {
+            ocultar: true
         }
 
     }
-
+    componentDidMount() {
+        setTimeout(() => {
+            this.setState({ocultar: false});
+        }, 1500);
+    }
     render() {
         const { classes } = this.props;
-        return (
+        return this.state.ocultar ? '' : (
             <Card className={classes.rodapeStyle}>
                 <Typography className={classes.textTypographyStyle}>Tomorrow News&trade; Todos os direitos reservados &copy; 2020</Typography>
             </Card>)

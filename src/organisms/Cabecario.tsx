@@ -6,7 +6,8 @@ const useStyles = makeStyles((theme: Theme) => ({
     headerStyle: {
         background: "#ffffff",
         marginTop: '-0.5%',
-        marginLeft: '-0.5%'
+        marginLeft: '-0.5%',
+        width: '101%'
     },
     AppBarStyle: {
     },
@@ -22,9 +23,9 @@ export default function NavTabs() {
     let history = useHistory();
     const classes = useStyles();
     let TabInicial:number;
-    if(window.location.pathname === '/Technology') TabInicial = 2
-    else if(window.location.pathname === '/Science') TabInicial = 3
-    else TabInicial = 1;
+    if(window.location.pathname === '/Technology') TabInicial = 1
+    else if(window.location.pathname === '/Science') TabInicial = 2
+    else TabInicial = 0;
     const [TabSelecionada, setTab] = React.useState(TabInicial);
 
     const handlerChange = (event: React.ChangeEvent<{}>, Tab: number) => {
