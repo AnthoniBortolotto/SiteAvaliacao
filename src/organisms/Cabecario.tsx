@@ -5,13 +5,13 @@ import { useHistory } from "react-router-dom";
 const useStyles = makeStyles((theme: Theme) => ({
     headerStyle: {
         background: "#ffffff",
+        marginTop: '-0.5%',
+        marginLeft: '-0.5%'
     },
     AppBarStyle: {
-        display: 'flex',
-        justifyContent: 'space-between'
     },
-    TabTituloStyle: {
-        width: '66%'
+    TituloCabecalhoStyle: {
+        textAlign: 'center'
     },
     TabNormalStyle: {
         width: '11%',
@@ -34,12 +34,13 @@ export default function NavTabs() {
     return (
         <header className={classes.headerStyle}>
             <AppBar color='inherit' position="static">
+            <Typography variant="h3" className={classes.TituloCabecalhoStyle}>Tomorrow News</Typography>
                 <Tabs
                     variant="standard"
                     value={TabSelecionada}
                     onChange={handlerChange}
                 >
-                    <Typography variant="h3" className={classes.TabTituloStyle}>Tomorrow News</Typography>
+                    
                     <Tab component="p" className={classes.TabNormalStyle} onClick={() => {history.push('/')}} label="Home" />
                     <Tab component="p" className={classes.TabNormalStyle} onClick={() => {history.push('/Technology')}} label="Technology" />
                     <Tab component="p" className={classes.TabNormalStyle} onClick={() => {history.push('/Science')}} label="Science" />
