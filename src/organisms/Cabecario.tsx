@@ -15,7 +15,16 @@ const useStyles = makeStyles((theme: Theme) => ({
         textAlign: 'center'
     },
     TabNormalStyle: {
-        width: '11%',
+        
+        [theme.breakpoints.up('xs')]: {
+            width: '33%',
+        },
+        [theme.breakpoints.up('md')]: {
+            width: '15%',
+        },
+        [theme.breakpoints.up('lg')]: {
+            width: '11%',
+        },
     }
 }));
 

@@ -7,6 +7,7 @@ import Typography from '@material-ui/core/Typography';
 import React, { lazy, Suspense } from 'react'
 import Noticia from '../molecules/Noticia';
 import Loading from '../atoms/Loading';
+import { Theme } from '@material-ui/core';
 const ImagemCartao = lazy(() => import('../molecules/ImagemCartao'));
 
 interface CardNoticiaProps {
@@ -14,30 +15,44 @@ interface CardNoticiaProps {
     onClick: Function
 }
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme: Theme) => ({
     CardStyle: {
-        border: 'none',
         height: '90%',
         marginTop: '4%',
-        transition: 'ease-in 0.5s',
-        width: '75%',
+        [theme.breakpoints.up('xs')]: {
+            width: '100%',
+            '&:hover': {
+                textDecoration: 'underline',
+            }
+        },
+        // [theme.breakpoints.up('sm')]: {
+        //     width: '75%%',
+        //     '&:hover': {
+        //         textDecoration: 'underline',
+        //     }
+        // },
+        [theme.breakpoints.up('sm')]: {
+
+            transition: 'ease-in 0.5s',
+            width: '75%',
+            '&:hover': {
+                width: '85%',
+                transition: 'ease-out 0.5s',
+                textDecoration: 'underline',
+                fontSize: '1.1rem'
+            }
+        },
         
-        zIndex: 1,
-        '&:hover': {
-            width: '85%',
-            transition: 'ease-out 0.5s',
-            textDecoration: 'underline',
-            fontSize: '1.1rem'
-        }
+
     }
-})
+}))
 function CardNoticia(props: CardNoticiaProps): JSX.Element {
     const classes = useStyles();
 
     return (
         <Card onClick={() => props.onClick()} className={classes.CardStyle}>
-            <Suspense fallback={<Loading/>}>
-            <ImagemCartao url={props.noticia.urlImagem} />
+            <Suspense fallback={<Loading />}>
+                <ImagemCartao url={props.noticia.urlImagem} />
             </Suspense>
             <CardContent>
                 <Typography component="p">{props.noticia.titulo}</Typography>

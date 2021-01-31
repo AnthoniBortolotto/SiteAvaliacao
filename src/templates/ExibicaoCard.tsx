@@ -13,16 +13,58 @@ export interface ExibicaoCardState {
     dialogId: number
 }
 
-const styles = () => createStyles({
+const styles = (theme: Theme) => createStyles({
     GridItemCardStyle: {
         marginRight: '-1%',
     },
     DialogImageStyle: {
         width: '100%'
+    },
+    DialogBtnStyle: {
+        margin: 'auto',
+        width: '0%',
+        paddingLeft: '50%',
+        paddingRight: '50%',
+    },
+    DialogBtnTextStyle: {
+        [theme.breakpoints.up('xs')]: {
+            padding: '90%',
+            paddingTop: '0%',
+            paddinBottom: '0%'
+        },
+        [theme.breakpoints.up('md')]: {
+            padding: '40%',
+            paddingTop: '0%',
+            paddinBottom: '0%'
+        },
+        [theme.breakpoints.up('lg')]: {
+            padding: '0%',
+            paddingTop: '0%',
+            paddinBottom: '0%'
+        },
+    },
+    DialogTitleStyle: {
+        [theme.breakpoints.up('xs')]: {
+            fontSize: '2.25rem'
+        },
+        [theme.breakpoints.up('md')]: {
+            fontSize: '3.25rem'
+        },
+        [theme.breakpoints.up('lg')]: {
+            fontSize: '1.25rem'
+        },
+    },
+    DialogTextStyle: {
+        [theme.breakpoints.up('xs')]: {
+            fontSize: '1.5rem'
+        },
+        [theme.breakpoints.up('md')]: {
+            fontSize: '1.75rem'
+        },
+        [theme.breakpoints.up('lg')]: {
+            fontSize: '1.25rem'
+        },
     }
-    // CardModalMediaStyle:{
-
-    // }
 })
 
 class ExibicaoCard extends React.Component<ExibicaoCardProps, ExibicaoCardState> {
@@ -34,13 +76,14 @@ class ExibicaoCard extends React.Component<ExibicaoCardProps, ExibicaoCardState>
             dialogId: -1
         }
     }
+
     private cards() {
         const { classes } = this.props;
         return (
             this.props.Noticias.map((noticia, index) => {
                 return (
-                    <Grid item xs={3} key={index} >
-                        <Suspense fallback={<Loading/>}>
+                    <Grid item lg={3} md={4} sm={6} xs={12} key={index} >
+                        <Suspense fallback={<Loading />}>
                             <CardNoticia noticia={noticia} onClick={() => this.setState({ dialogId: index, dialogOpen: true })} />
                         </Suspense>
                     </Grid>
@@ -56,20 +99,20 @@ class ExibicaoCard extends React.Component<ExibicaoCardProps, ExibicaoCardState>
                 keepMounted
                 onClose={() => this.setState({ dialogOpen: false })}
             >
-                <DialogTitle>{this.props.Noticias[this.state.dialogId].titulo}</DialogTitle>
+                <DialogTitle><Typography variant="h2" className={classes.DialogTitleStyle}>{this.props.Noticias[this.state.dialogId].titulo}</Typography></DialogTitle>
                 <DialogContent>
                     <img className={classes.DialogImageStyle} alt="Imagem da notícia" src={this.props.Noticias[this.state.dialogId].urlImagemResolucaoBoa} />
-                    <DialogContentText>
+                    <DialogContentText className={classes.DialogTextStyle}> 
                         {this.props.Noticias[this.state.dialogId].abstract}
                     </DialogContentText>
-                    <DialogContentText>
+                    <DialogContentText className={classes.DialogTextStyle}>
                         News Link: <Link target="_blank" href={this.props.Noticias[this.state.dialogId].url}>{this.props.Noticias[this.state.dialogId].url}</Link>
                     </DialogContentText>
                 </DialogContent>
                 <DialogActions>
-                    <Button onClick={() => this.setState({ dialogOpen: false })} color="primary">
-                        Close
-              </Button>
+                    <Button className={classes.DialogBtnStyle} onClick={() => this.setState({ dialogOpen: false })} color="primary">
+                        <Typography component="p" className={classes.DialogBtnTextStyle}>Close</Typography>
+                    </Button>
                 </DialogActions>
             </Dialog>}
         </>
