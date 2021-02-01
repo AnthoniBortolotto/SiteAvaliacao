@@ -9,9 +9,6 @@ const Home = lazy(() => import('../pages/Home'));
 const Science = lazy(() => import('../pages/Science'));
 const Technology = lazy(() => import('../pages/Technology'));
 const NotFound = lazy(() => import('../pages/NotFound'));
-//import Science from '../pages/Science';
-//import Technology from '../pages/Technology';
-//const Rodape = lazy(() => import('../organisms/Rodape'));
 export const theme = createMuiTheme({
   palette: {
     primary: {
