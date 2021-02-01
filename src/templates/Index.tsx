@@ -8,6 +8,7 @@ import Rodape from '../organisms/Rodape';
 const Home = lazy(() => import('../pages/Home'));
 const Science = lazy(() => import('../pages/Science'));
 const Technology = lazy(() => import('../pages/Technology'));
+const NotFound = lazy(() => import('../pages/NotFound'));
 //import Science from '../pages/Science';
 //import Technology from '../pages/Technology';
 //const Rodape = lazy(() => import('../organisms/Rodape'));
@@ -33,7 +34,7 @@ ReactDOM.render(
           <Route exact={true} path="/" component={Home} />
           <Route exact={true} path="/Science" component={Science} />
           <Route exact={true} path="/Technology" component={Technology} />
-
+          <Route component={NotFound}/>
         </Switch>
         </Suspense>
         <Rodape />

@@ -17,9 +17,5 @@ do Dialog em razão de seu funcionamento combinar com o objetivo do modal.
 
 
 **Lista de Afazeres:**
--Consertar o final do grid de notícias;
 -Fazer o Rodapé ficar posicionado sempre no fim da página;
--Ajustar  ordem de carregamento das notícias;
--Consertar a animação das Abas;
 -Se possível adicionar testes unitários;
--Se tudo estiver feito adicionar responsividade;
