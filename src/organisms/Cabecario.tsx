@@ -1,4 +1,9 @@
-import { AppBar, makeStyles, Tab, Tabs, Theme, Typography} from '@material-ui/core';
+import { Theme } from '@material-ui/core';
+import AppBar from '@material-ui/core/AppBar';
+import makeStyles from '@material-ui/core/styles/makeStyles';
+import Tab from '@material-ui/core/Tab';
+import Tabs from '@material-ui/core/Tabs';
+import Typography from '@material-ui/core/Typography';
 import React from 'react';
 import { useHistory } from "react-router-dom";
 

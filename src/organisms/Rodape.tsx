@@ -1,6 +1,6 @@
-import { Card, Grid } from '@material-ui/core';
+import { Card, createStyles, WithStyles } from '@material-ui/core';
 import Typography from '@material-ui/core/Typography/Typography';
-import { createStyles, WithStyles, withStyles } from '@material-ui/styles';
+import withStyles from '@material-ui/styles/withStyles';
 import React, { Component } from 'react'
 export interface RodapeProps extends WithStyles<typeof styles> {
 

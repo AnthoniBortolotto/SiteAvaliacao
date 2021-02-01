@@ -1,8 +1,9 @@
-import { Card, CardContent, CardMedia, createStyles, Grid, Theme, Typography, WithStyles, withStyles } from '@material-ui/core';
 import React from 'react'
 import CardNoticias from '../templates/ExibicaoCard';
 import Noticia from '../molecules/Noticia';
 import NewsService from '../Services/NewsService';
+import { createStyles, withStyles, WithStyles } from '@material-ui/styles';
+import { Grid, Theme } from '@material-ui/core';
 
 export interface ScienceProps extends WithStyles<typeof styles> {
 

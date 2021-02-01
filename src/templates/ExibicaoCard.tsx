@@ -1,7 +1,8 @@
-import { Card, CardContent, CardMedia, makeStyles, createStyles, Grid, Link, Theme, Typography, WithStyles, withStyles, Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions, Button } from '@material-ui/core';
-import React, { lazy, MouseEventHandler, Suspense } from 'react'
+import React, { lazy, Suspense } from 'react'
 import Noticia from '../molecules/Noticia';
 import Loading from '../atoms/Loading';
+import { Button, createStyles, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Grid, Link, Theme, Typography, WithStyles } from '@material-ui/core';
+import withStyles from '@material-ui/styles/withStyles';
 const CardNoticia = lazy(() => import('../organisms/CardNoticia'));
 
 export interface ExibicaoCardProps extends WithStyles<typeof styles> {
