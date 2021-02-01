@@ -17,5 +17,7 @@ do Dialog em razão de seu funcionamento combinar com o objetivo do modal.
 
 
 **Lista de Afazeres:**
--Fazer o Rodapé ficar posicionado sempre no fim da página;
--Se possível adicionar testes unitários;
+
+
+-Fazer o Rodapé ficar posicionado sempre no fim da página
+-Se possível adicionar testes unitários
