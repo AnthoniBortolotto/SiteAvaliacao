@@ -1,7 +1,9 @@
-Para iniciar o site faça:
-npm install
-npm run dev
+**Instruções**
+*Para iniciar o site faça:*
+*npm install*
+*npm run dev*
 
+**Informações**
 *Este é um site de notícias que consome a API do New York Times*
 
 *Ele faz uso de Webpack, Babel, Typescript e React*
@@ -17,6 +19,6 @@ npm run dev
 *O site é responsivo em télas de largura de até 360px e altura de até 640px*
 *até telas de 1440px de largura e 900px de altura*
 
-**Lista de Afazeres:**
+**Lista de Afazeres**
 *-Fazer o Rodapé ficar posicionado sempre no fim da página;*
 *-Se possível adicionar testes unitários;*
