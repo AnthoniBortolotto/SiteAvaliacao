@@ -6,7 +6,7 @@ import React, { lazy, Suspense } from 'react'
 import Noticia from '../molecules/Noticia';
 import Loading from '../atoms/Loading';
 import { Theme } from '@material-ui/core';
-const ImagemCartao = lazy(() => import('../molecules/ImagemCartao'));
+const ImagemCartao = lazy(() => import('../atoms/ImagemCartao'));
 
 interface CardNoticiaProps {
     noticia: Noticia
