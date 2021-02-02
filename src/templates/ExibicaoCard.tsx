@@ -46,10 +46,10 @@ const styles = (theme: Theme) => createStyles({
     },
     DialogTitleStyle: {
         [theme.breakpoints.up('xs')]: {
-            fontSize: '2.25rem'
+            fontSize: '1.5rem'
         },
         [theme.breakpoints.up('md')]: {
-            fontSize: '3.25rem'
+            fontSize: '2.25rem'
         },
         [theme.breakpoints.up('lg')]: {
             fontSize: '1.25rem'
@@ -100,7 +100,7 @@ class ExibicaoCard extends React.Component<ExibicaoCardProps, ExibicaoCardState>
                 keepMounted
                 onClose={() => this.setState({ dialogOpen: false })}
             >
-                <DialogTitle><Typography variant="h2" className={classes.DialogTitleStyle}>{this.props.Noticias[this.state.dialogId].titulo}</Typography></DialogTitle>
+                <DialogTitle><Typography variant="h5" className={classes.DialogTitleStyle}>{this.props.Noticias[this.state.dialogId].titulo}</Typography></DialogTitle>
                 <DialogContent>
                     <img className={classes.DialogImageStyle} alt="Imagem da notícia" src={this.props.Noticias[this.state.dialogId].urlImagemResolucaoBoa} />
                     <DialogContentText className={classes.DialogTextStyle}> 
@@ -112,7 +112,7 @@ class ExibicaoCard extends React.Component<ExibicaoCardProps, ExibicaoCardState>
                 </DialogContent>
                 <DialogActions>
                     <Button className={classes.DialogBtnStyle} onClick={() => this.setState({ dialogOpen: false })} color="primary">
-                        <Typography component="p" className={classes.DialogBtnTextStyle}>Close</Typography>
+                        <Typography className={classes.DialogBtnTextStyle}>Close</Typography>
                     </Button>
                 </DialogActions>
             </Dialog>}
