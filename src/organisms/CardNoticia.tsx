@@ -23,25 +23,22 @@ const useStyles = makeStyles((theme: Theme) => ({
                 textDecoration: 'underline',
             }
         },
-        // [theme.breakpoints.up('sm')]: {
-        //     width: '75%%',
-        //     '&:hover': {
-        //         textDecoration: 'underline',
-        //     }
-        // },
         [theme.breakpoints.up('sm')]: {
 
             transition: 'ease-in 0.5s',
             width: '75%',
             '&:hover': {
-                width: '85%',
+                fontSize: '1.1rem',
                 transition: 'ease-out 0.5s',
                 textDecoration: 'underline',
-                fontSize: '1.1rem'
+                width: '85%',
             }
         },
-        
-
+    },
+    CardContentStyle: {
+        '&:hover': {
+            cursor: 'pointer'
+        }
     }
 }))
 function CardNoticia(props: CardNoticiaProps): JSX.Element {
@@ -52,7 +49,7 @@ function CardNoticia(props: CardNoticiaProps): JSX.Element {
             <Suspense fallback={<Loading />}>
                 <ImagemCartao url={props.noticia.urlImagem} />
             </Suspense>
-            <CardContent>
+            <CardContent className={classes.CardContentStyle}>
                 <Typography component="p">{props.noticia.titulo}</Typography>
             </CardContent>
         </Card>
