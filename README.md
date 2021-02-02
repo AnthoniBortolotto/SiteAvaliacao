@@ -22,9 +22,3 @@ npm run dev
 
 *O site é responsivo em télas de largura de até 360px e altura de até 640px*
 *até telas de 1440px de largura e 900px de altura*
-
-**Lista de Afazeres**
-
-*-Fazer o Rodapé ficar posicionado sempre no fim da página;*
-
-*-Se possível adicionar testes unitários;*
