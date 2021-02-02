@@ -44,17 +44,6 @@ const styles = (theme: Theme) => createStyles({
             paddinBottom: '0%'
         },
     },
-    DialogTitleStyle: {
-        [theme.breakpoints.up('xs')]: {
-            fontSize: '1.5rem'
-        },
-        [theme.breakpoints.up('md')]: {
-            fontSize: '2.25rem'
-        },
-        [theme.breakpoints.up('lg')]: {
-            fontSize: '1.25rem'
-        },
-    },
     DialogTextStyle: {
         [theme.breakpoints.up('xs')]: {
             fontSize: '1.5rem'
@@ -100,7 +89,7 @@ class ExibicaoCard extends React.Component<ExibicaoCardProps, ExibicaoCardState>
                 keepMounted
                 onClose={() => this.setState({ dialogOpen: false })}
             >
-                <DialogTitle><Typography variant="h5" className={classes.DialogTitleStyle}>{this.props.Noticias[this.state.dialogId].titulo}</Typography></DialogTitle>
+                <DialogTitle><Typography variant="h5">{this.props.Noticias[this.state.dialogId].titulo}</Typography></DialogTitle>
                 <DialogContent>
                     <img className={classes.DialogImageStyle} alt="Imagem da notícia" src={this.props.Noticias[this.state.dialogId].urlImagemResolucaoBoa} />
                     <DialogContentText className={classes.DialogTextStyle}> 
